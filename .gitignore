@@ -22,6 +22,8 @@ __pycache__/
 
 # OpenLane generated runs
 physical_design/runs/
+
+# Generated reports and intermediate data
 physical_design/logs/
 physical_design/reports/
 physical_design/results/
