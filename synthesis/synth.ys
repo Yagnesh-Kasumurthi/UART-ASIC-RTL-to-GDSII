@@ -1,0 +1,19 @@
+# UART ASIC PROJECT - GENERIC RTL SYNTHESIS
+
+read_verilog rtl/baud_gen.v
+read_verilog rtl/uart_tx.v
+read_verilog rtl/uart_rx.v
+read_verilog rtl/uart_regs.v
+read_verilog rtl/uart_top.v
+
+hierarchy -check -top uart_top
+
+proc
+opt
+
+synth -top uart_top
+
+stat
+tee -o synthesis/reports/synthesis_stat.txt stat
+
+write_verilog synthesis/netlist/uart_generic.v

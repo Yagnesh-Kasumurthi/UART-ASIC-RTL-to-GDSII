@@ -1,0 +1,17 @@
+
+{
+    "DESIGN_NAME": "uart_top",
+    "VERILOG_FILES": [
+        "dir::../rtl/baud_gen.v",
+        "dir::../rtl/uart_tx.v",
+        "dir::../rtl/uart_rx.v",
+        "dir::../rtl/uart_regs.v",
+        "dir::../rtl/uart_top.v"
+    ],
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 20,
+    "PDK": "sky130A",
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+    "PNR_SDC_FILE": "dir::../constraints/design.sdc",
+    "SIGNOFF_SDC_FILE": "dir::../constraints/design.sdc"
+}

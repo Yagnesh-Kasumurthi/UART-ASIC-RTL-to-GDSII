@@ -1,0 +1,39 @@
+# Python environments
+.venv/
+.venv-*/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Simulation outputs
+*.vvp
+*.vcd
+*.fst
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+
+# OpenLane generated runs
+physical_design/runs/
+physical_design/logs/
+physical_design/reports/
+physical_design/results/
+
+# Generated physical design files
+*.gds
+*.gdsii
+*.lef
+*.def
+*.spef
+*.lib
+
+# Generated synthesis files
+synthesis/netlist/
+synthesis/reports/

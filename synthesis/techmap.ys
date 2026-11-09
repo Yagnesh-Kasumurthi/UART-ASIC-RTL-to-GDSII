@@ -1,0 +1,32 @@
+
+# ==========================================
+# UART ASIC - SKY130 TECHNOLOGY MAPPING
+# ==========================================
+
+# Read UART RTL modules
+read_verilog rtl/baud_gen.v
+read_verilog rtl/uart_tx.v
+read_verilog rtl/uart_rx.v
+read_verilog rtl/uart_regs.v
+read_verilog rtl/uart_top.v
+
+# Check design hierarchy
+hierarchy -check -top uart_top
+
+# Perform generic synthesis
+synth -top uart_top
+
+# Map flip-flops to SKY130 standard cells
+dfflibmap -liberty /Users/yagnesh/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Map combinational logic to SKY130 cells
+abc -liberty /Users/yagnesh/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Clean unused logic
+clean
+
+# Display mapped cell statistics
+stat -liberty /Users/yagnesh/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Export technology-mapped netlist
+write_verilog -noattr synthesis/netlist/uart_sky130.v
